@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif ;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-color: rgb(74, 47, 100);
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.landing {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; 
+    min-height: 85vh;
+    transition: opacity 0.5s;
+
+}
+
+.landing h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1%;
+    font-weight: lighter;
+    font-size: 3rem;
+
+}
+
+.landing h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1%;
+    font-family:'Courier New', Courier, monospace ;
+}
+
+.filter-form {
+    /* border: 1px solid white; */
+    text-align: center;
+    width:60%;
+}
+
+.filter-form .filter {
+    text-align: center;
+    padding: 1.1rem;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    width: 60%;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.filter-form .filter:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px rgb(255, 243, 130);
+}
+
+.filter-form .filter-submit {
+    border: none;
+    background-color: #ffc107;
+    color: rgb(49, 47, 47);
+    font-size: 1rem;
+    padding: 1% 2.5%;
+    border-radius: 5px;
+
+}
+
+.filter-form .filter-submit:hover {
+    background-color: #d6a102;
+}
+
+
+
+.example-enter {
+    opacity: 0.01;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .example-leave {
+    opacity: 1;
   }
-}
+  
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+  }
