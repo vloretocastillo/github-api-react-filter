@@ -18,7 +18,19 @@ class App extends React.Component {
   }
 
   handleClickGoToLanding = () => {
-    this.setState({ displayLanding: true })
+    this.setState({ 
+      displayLanding: true,
+      displayUser: false,
+      displayRepos: false
+    })
+  }
+
+  handleClickGoToUserCard = () => {
+    this.setState({ 
+      displayLanding: false,
+      displayUser: true,
+      displayRepos: false
+    })
   }
 
   handleClickGoToRepos = () => {
@@ -34,7 +46,7 @@ class App extends React.Component {
           return res.json()
         })
       .then((repos) => {
-          console.log(repos)
+          // console.log(repos)
           if(repos) {
             this.setState({
               repos,
@@ -103,8 +115,7 @@ class App extends React.Component {
     } else if ( this.state.displayUser ) {
       content = <UserCard key={2} user={ this.state.data } handleClickGoToLanding={ this.handleClickGoToLanding } handleClickGoToRepos={this.handleClickGoToRepos }/>;
     } else if ( this.state.displayRepos ) {
-      // content = <
-      content = <RepoCards />
+      content = <RepoCards avatar_url={ this.state.data.avatar_url } username={ this.state.username }repos={ this.state.repos } handleClickGoToUserCard={this.handleClickGoToUserCard}/>
     }
      
     return (
@@ -115,7 +126,7 @@ class App extends React.Component {
           transitionAppearTimeout={1000}
           transitionEnter={true}
           transitionEnterTimeout={1000}
-          transitionLeave={true}
+          transitionLeave={false}
           transitionLeaveTimeout={1000}>
           {/* { this.state.displayRepos ? <RepoCards /> : false} */}
           {/* { this.state.displayLanding ? <Landing key={1} handleFormSubmit={this.handleFormSubmit}/> : false } */}
