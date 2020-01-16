@@ -15,11 +15,24 @@ class UserCard extends React.Component {
     }
     render() {
 
-        let { user } = this.state
+        let { login, name, avatar_url, followers, following, location, public_repos, html_url, repos_url } = this.state.user
         
+
+
+
         return (
-            <section className='user-card'>
-                <h2>{ user.login }</h2>
+            <section className='user-card-container'>
+                <div className='card'>
+                    <article className='avatar-container'>
+                        <div className='avatar-wrapper'>
+                            <img src={ avatar_url } alt="user's avatar picture"/>
+                        </div>
+                    </article>
+                    <article className='info-container'>
+                        <h2>{ login } </h2>
+                        <h4>{ name }</h4>
+                    </article>
+                </div>
             </section>
         
         );

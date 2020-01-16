@@ -8,6 +8,7 @@
 body {
     background-color: rgb(74, 47, 100);
     color: white;
+    
 }
 
 .landing {
@@ -17,7 +18,7 @@ body {
     justify-content: center;
     align-content: center; 
     min-height: 85vh;
-    transition: opacity 0.5s;
+    transition: opacity 1s;
 
 }
 
@@ -74,6 +75,52 @@ body {
     background-color: #d6a102;
 }
 
+.user-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; 
+    min-height: 85vh;
+    /* border: 1px solid white; */
+
+    
+}
+
+.card {
+    /* height: 100%; */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar-container {
+    border: 1px solid white;
+    width: 30%;
+    /* border-radius: 50%; */
+    /* overflow: hidden; */
+
+}
+
+.avatar-wrapper {
+    
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+.avatar-wrapper img {
+    width: 100%;
+
+}
+
+.info-container {
+    border: 1px solid white;
+    width: 60%;
+}
 
 
 .example-enter {
