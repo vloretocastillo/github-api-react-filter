@@ -5,6 +5,10 @@
 
 }
 
+a {
+    text-decoration: none !important
+}
+
 body {
     background-color: rgb(74, 47, 100);
     color: white;
@@ -94,6 +98,7 @@ body {
     padding: 4%;
     display: flex;
     justify-content: space-between;
+    transition: opacity 1s;
 }
 
 .avatar-container {
@@ -119,9 +124,40 @@ body {
 
 .info-container {
     border: 1px solid white;
-    width: 60%;
+    width: 65%;
 }
 
+.buttons-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.back-action {
+    border: none;
+    background-color: #ffc107;
+    color: rgb(49, 47, 47);
+    font-size: 1rem;
+    padding: 1% 2.5%;
+    border-radius: 5px;
+    margin-right: 1%;
+}
+
+
+
+.repos-action {
+    border: none;
+    background-color: #ffc107;
+    color: rgb(49, 47, 47);
+    font-size: 1rem;
+    padding: 1% 2.5%;
+    border-radius: 5px;
+    margin-left: 1%;
+}
+
+.back-action:hover, .repos-action:hover {
+    background-color: #d6a102;
+}
 
 .example-enter {
     opacity: 0.01;

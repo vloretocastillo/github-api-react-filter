@@ -10,20 +10,53 @@ class App extends React.Component {
   state = {
     displayLanding : true,
     username : '',
-    data : false
+    data : false,
+    repos : []
   }
 
+  handleClickGoToLanding = () => {
+    this.setState({ displayLanding: true })
+  }
+
+  handleClickGoToRepos = () => {
+    let { repos_url } = this.state.data
+    fetch(repos_url)
+      .then( (res) => {
+          if (res.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              res.status);
+            return;
+          }
+          return res.json()
+        })
+      .then((data) => {
+          console.log(data)
+      })
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+
+  }
   
+
+
+
+
+
+
 
   handleFormSubmit = (e) => {
     e.preventDefault()
-    let username = document.getElementById('filter').value.trim()
-    this.setState({
-      username,
-      displayLanding: false
-    })
+    
+    
 
-    // console.log(this.state)
+    let username = document.getElementById('filter').value.trim()
+
+    if (this.state.data && username === this.state.username) {
+      this.setState({displayLanding: false})
+      return;
+    }
+
     fetch(`https://api.github.com/users/${username}`)
       .then( (res) => {
           if (res.status !== 200) {
@@ -34,8 +67,13 @@ class App extends React.Component {
           return res.json()
         })
         .then((data) => {
-          this.setState({ data })
-          // console.log(data);
+          if(data) {
+            this.setState({
+              username,
+              data,
+              displayLanding: false
+            })
+          }
         })
       .catch(function(err) {
         console.log('Fetch Error :-S', err);
@@ -55,9 +93,19 @@ class App extends React.Component {
           transitionEnterTimeout={1000}
           transitionLeave={true}
           transitionLeaveTimeout={1000}>
-          {this.state.displayLanding ? <Landing key={1} handleFormSubmit={this.handleFormSubmit}/> : false}
-          {this.state.data ? <UserCard key={2} user={ this.state.data }/> : false}
+          {this.state.displayLanding ? <Landing key={1} handleFormSubmit={this.handleFormSubmit}/> : false }
+          { this.state.data && !this.state.displayLanding ? <UserCard key={2} user={ this.state.data } handleClickGoToLanding={ this.handleClickGoToLanding } handleClickGoToRepos={this.handleClickGoToRepos }/> : false }
+
+
+          
+
+          
+            
+          
+
+          
         </CSSTransitionGroup>
+        
         </div>
     
     );
