@@ -3,9 +3,7 @@ import './App.css';
 import Landing from './components/landing.js';
 import UserCard from './components/userCard.js';
 import RepoCards from './components/repoCards.js';
-
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
-
 
 class App extends React.Component {
   state = {
@@ -34,8 +32,15 @@ class App extends React.Component {
   }
 
   handleClickGoToRepos = () => {
-    let { repos_url } = this.state.data    
+    this.setState({ 
+      displayLanding: false,
+      displayUser: false,
+      displayRepos: true
+    })
+  }
 
+  handleClickGoToRepos = () => {
+    let { repos_url, login } = this.state.data   
     fetch(repos_url)
       .then( (res) => {
           if (res.status !== 200) {
@@ -64,22 +69,13 @@ class App extends React.Component {
   
   handleFormSubmit = (e) => {
     e.preventDefault()
-    
-    
-
     let username = document.getElementById('filter').value.trim()
 
     // Check if the username entered is already loadind in the state and avoid making unnecesary requests
     if (this.state.data && username === this.state.username) {
-      this.setState({
-        displayLanding: false,
-        displayUser: true,
-        displayRepos: false
-      })
+      this.handleClickGoToUserCard()
       return;
     }
-
-    
     fetch(`https://api.github.com/users/${username}`)
       .then( (res) => {
           if (res.status !== 200) {
@@ -104,7 +100,6 @@ class App extends React.Component {
       .catch(function(err) {
         console.log('Fetch Error :-S', err);
       });
-
   }
 
   render() {
@@ -115,7 +110,7 @@ class App extends React.Component {
     } else if ( this.state.displayUser ) {
       content = <UserCard key={2} user={ this.state.data } handleClickGoToLanding={ this.handleClickGoToLanding } handleClickGoToRepos={this.handleClickGoToRepos }/>;
     } else if ( this.state.displayRepos ) {
-      content = <RepoCards avatar_url={ this.state.data.avatar_url } username={ this.state.username }repos={ this.state.repos } handleClickGoToUserCard={this.handleClickGoToUserCard}/>
+      content = <RepoCards username={ this.state.username } repos={ this.state.repos } handleClickGoToUserCard={this.handleClickGoToUserCard}/>
     }
      
     return (
@@ -128,18 +123,7 @@ class App extends React.Component {
           transitionEnterTimeout={1000}
           transitionLeave={false}
           transitionLeaveTimeout={1000}>
-          {/* { this.state.displayRepos ? <RepoCards /> : false} */}
-          {/* { this.state.displayLanding ? <Landing key={1} handleFormSubmit={this.handleFormSubmit}/> : false } */}
-          {/* { this.state.data && !this.state.displayLanding ? <UserCard key={2} user={ this.state.data } handleClickGoToLanding={ this.handleClickGoToLanding } handleClickGoToRepos={this.handleClickGoToRepos }/> : false } */}
-          
-          { content }
-          
-
-          
-            
-          
-
-          
+            { content }     
         </CSSTransitionGroup>
         
         </div>

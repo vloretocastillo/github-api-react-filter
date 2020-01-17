@@ -6,7 +6,8 @@
 }
 
 a {
-    text-decoration: none !important
+    text-decoration: none !important;
+    color: white;
 }
 
 body {
@@ -16,7 +17,6 @@ body {
 }
 
 .landing {
-    /* border: 1px solid white; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -44,7 +44,6 @@ body {
 }
 
 .filter-form {
-    /* border: 1px solid white; */
     text-align: center;
     width:60%;
 }
@@ -84,29 +83,24 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center; 
-    min-height: 85vh;
-    /* border: 1px solid white; */
+    min-height: 90vh;
 
     
 }
 
 .card {
-    /* height: 100%; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
+    border-radius: 5px; 
     padding: 4%;
     display: flex;
     justify-content: space-between;
     transition: opacity 1s;
+    background-color:  rgb(59, 5, 110);
 }
 
 .avatar-container {
-    border: 1px solid white;
     width: 30%;
-    /* border-radius: 50%; */
-    /* overflow: hidden; */
-
 }
 
 .avatar-wrapper {
@@ -123,7 +117,6 @@ body {
 }
 
 .info-container {
-    border: 1px solid white;
     width: 65%;
 }
 
@@ -136,7 +129,7 @@ body {
 .back-action {
     border: none;
     background-color: #ffc107;
-    color: rgb(49, 47, 47);
+    color: rgb(74, 47, 100);
     font-size: 1rem;
     padding: 1% 2.5%;
     border-radius: 5px;
@@ -148,7 +141,7 @@ body {
 .repos-action {
     border: none;
     background-color: #ffc107;
-    color: rgb(49, 47, 47);
+    color: rgb(74, 47, 100);
     font-size: 1rem;
     padding: 1% 2.5%;
     border-radius: 5px;
@@ -173,7 +166,7 @@ body {
 }
 
 .repo-card {
-    background-color: rgb(126, 22, 223);
+    background-color: rgb(59, 5, 110);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 1.5%;
     padding: 4%;
@@ -185,7 +178,48 @@ body {
 }
 
 .user-info-container-repo-view {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin: 2% auto;
+    /* border: 1px solid white; */
+}
+
+.avatar-container-repos {
+    width: 15%;
+}
+
+.count-container {
+    display: flex;
+    margin: 4% 0;
+}
+
+.count-container p {
+    background-color: rgb(51, 49, 49);
+    padding:  1%;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    margin-right: 2%;
+    font-size: 0.8rem;
+}
+
+.location-p, .public-repos-p {
+    margin: 3% 0;
+    font-size: 0.8rem;
+}
+
+
+.button-github-link {
+    border: none;
+    background-color: #d19d00;
+    color: white;
+    font-size: 1rem;
+    padding: 1% 2.5%;
+    border-radius: 5px;
+    /* margin-right: 1%; */
+    margin-top: 2%;
+    font-size: 0.8rem;
 }
 
 .example-enter {

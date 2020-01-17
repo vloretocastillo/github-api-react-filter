@@ -21,8 +21,8 @@ class RepoCards extends React.Component {
             
             <section className='repos-card-container'>
                 <div className='user-info-container-repo-view'>
-                    <img src={ this.props.avatar_url } alt=""/>
-                    <button onClick={ ()=> this.props.handleClickGoToUserCard() }>Go back</button>
+                    
+                    <button className='back-action' onClick={ ()=> this.props.handleClickGoToUserCard() }> Back </button>
                 </div>
                 { cards }
             </section>

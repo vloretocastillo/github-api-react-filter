@@ -32,13 +32,17 @@ class UserCard extends React.Component {
                         </div>
                     </article>
                     <article className='info-container'>
-                        <h2>{ login } </h2>
-                        <h4>{ name }</h4>
-                        <p>Followers: { followers }</p>
-                        <p>Following: { following }</p>
-                        <p>{ location }</p>
-                        <p>Public repos: { public_repos }</p>
-                        <p>Visit the <a href={html_url} target="_blank" >profile</a></p>
+                        <div>
+                            <h2>{ login } </h2>
+                            <h4>{ name }</h4>
+                        </div>
+                        <div className='count-container'>
+                            <p>Followers: { followers }</p> 
+                            <p>Following: { following }</p>
+                        </div>
+                        <p className='location-p'>{ location ? `Location: ${location}` : false  }</p>
+                        <p className='public-repos-p'>Public repos: { public_repos }</p>
+                        <a href={html_url} target="_blank" ><button className='button-github-link'>Visit the profile</button></a>
                     </article>
                 </div>
                 <div className='buttons-container'>
